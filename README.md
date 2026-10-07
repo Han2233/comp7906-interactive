@@ -38,4 +38,4 @@
 
 参考：[NIST FIPS 197 AES](https://csrc.nist.gov/pubs/fips/197/final)，[RFC 6229](https://www.rfc-editor.org/rfc/rfc6229.html)，[RFC 7465 RC4 限制](https://www.rfc-editor.org/rfc/rfc7465.html)。课程中的公式勘误在网页末尾公开列出。
 
-浏览器若支持 WebMCP，页面提供课程结构读取与章节导航；普通浏览器和离线使用均无需此功能。此设备未提供原生 WebMCP 验证环境。
+浏览器若支持 WebMCP，页面提供课程结构读取与章节导航；普通浏览器和离线使用均无需此功能。已在原生 WebMCP 环境验证章节结构读取、有效章节导航与无效章节拒绝。
