@@ -11,10 +11,37 @@ assert.equal(c.exerciseFeistel(0x96,2,true).value,0x92);assert.deepEqual(c.hillC
 const key=Buffer.from('133457799BBCDFF1','hex'),ks=c.desKeySchedule([...key].flatMap(x=>x.toString(2).padStart(8,'0').split('').map(Number))),hx=x=>BigInt('0b'+x.join('')).toString(16);assert.equal(hx(ks.trace[0].k),'1b02effc7072');assert.equal(hx(ks.trace[15].k),'cb3d8b0e17f5');
 assert.deepEqual(c.ecMul(2,[5,1],2,17),[6,3]);assert.equal(c.ecMul(19,[5,1],2,17),null);
 const ctx={};vm.createContext(ctx);for(const file of ['content.js','enrichment.js','demos.js','advanced-demos.js','assessment-localization.js','quiz.js','practice.js','mock-exams.js','materials.js'])vm.runInContext(fs.readFileSync(file,'utf8'),ctx,{filename:file});
+for(const file of ['book.js',...Array.from({length:7},(_,i)=>`chapter-${i+1}.js`)])vm.runInContext(fs.readFileSync('lessons/'+file,'utf8'),ctx,{filename:'lessons/'+file});
+const teaching=JSON.parse(vm.runInContext('JSON.stringify({stories:chapterStories,lessons:chapters.flatMap(c=>c.units.map(u=>u.lesson))})',ctx));
+assert.equal(teaching.stories.length,7);assert.equal(teaching.lessons.length,88);
+const blockKinds=new Set(['paragraph','heading','aside','worked','comparison','flow','dialogue','equation']);
+for(const story of teaching.stories){assert.ok(story.scene&&story.story&&story.bridge);assert.equal(story.route.length,3);}
+for(const l of teaching.lessons){assert.ok(l.title&&l.labTitle&&l.guide);assert.ok(l.blocks.length>=3);for(const b of l.blocks){assert.ok(blockKinds.has(b.kind));if(b.kind==='equation')assert.ok(!/&(?:lt|gt);/.test(b.expression));if(b.kind==='worked')assert.ok(b.steps.length>=2);if(b.kind==='flow')assert.ok(b.items.length>=2);}}
+// Load the renderer in the same global context to detect cross-file name collisions.
+ctx.window={addEventListener(){}};ctx.document={};ctx.localStorage={getItem(){return '[]'}};
+vm.runInContext(fs.readFileSync('app.js','utf8'),ctx,{filename:'app.js'});
+const chapterHTML=vm.runInContext('chapters.map(renderTeachingChapter).join("")',ctx);
+assert.equal((chapterHTML.match(/class="unit teaching-unit"/g)||[]).length,88);
+assert.equal((chapterHTML.match(/class="slide-notes"/g)||[]).length,88);
+assert.equal((chapterHTML.match(/class="lesson-lab"/g)||[]).length,88);
+assert.equal((chapterHTML.match(/class="chapter-opening"/g)||[]).length,7);
+assert.ok(!/<h4>(是什么|为什么|怎么算)/.test(chapterHTML));
+assert.ok(!chapterHTML.includes('undefined'));assert.ok(!chapterHTML.includes('[object Object]'));
+for(const [x,expected] of [[2,992],[4,1232],[8,1547],[16,789]])assert.equal(c.powmod(65,x,3233),expected);
+assert.equal(c.powmod(11,5,391),350);assert.equal(c.powmod(11,7,391),122);
+assert.equal(c.powmod(350,3,391)*c.powmod(125,2,391)%391,11);
+assert.equal(c.powmod(2,27,55),18);assert.equal(c.powmod(3,27,55),42);
+assert.equal(18**2*42%55,23);assert.equal(c.powmod(23,3,55),12);
+assert.equal(c.powmod(5,6,23),8);assert.equal(c.powmod(5,15,23),19);assert.equal(c.powmod(19,6,23),2);
+assert.equal(c.gfmul(2,0xdb)^c.gfmul(3,0x13)^0x53^0x45,0x8e);
+console.log(`PASS: 88 authored lessons, ${teaching.lessons.reduce((n,l)=>n+l.blocks.length,0)} varied teaching blocks, seven chapter stories, all slide notes and labs preserved; new worked examples checked.`);
 vm.runInContext(`globalThis.stats={units:chapters.reduce((s,c)=>s+c.units.length,0),cases:practiceCases.length,checks:practiceCases.reduce((s,c)=>s+c.checks.length,0),glossary:glossary.length,quiz:chapterQuestionBank.reduce((n,q)=>n+q.length,0),chapterTests:chapterQuestionBank.length,mockPapers:mockPapers.length,drills:transferDrills.length,unknown:chapters.flatMap(c=>c.units).filter(u=>!['explore','practice','cia'].includes(u.demo.type)&&!demoFactories[u.demo.type]).map(u=>u.demo.type),blankGlossary:glossary.filter(x=>x.length<3).length,chapterUnits:chapters.map(c=>c.units.length)};`,ctx);
 assert.equal(ctx.stats.units,88);assert.equal(ctx.stats.cases,20);assert.equal(ctx.stats.checks,43);assert.equal(ctx.stats.quiz,44);assert.equal(ctx.stats.chapterTests,7);assert.equal(ctx.stats.mockPapers,3);assert.equal(ctx.stats.drills,6);assert.equal(ctx.stats.blankGlossary,0);assert.deepEqual(Array.from(ctx.stats.unknown),[]);console.log('PASS: 300 AES encrypt/decrypt standard comparisons; 200 S-AES, 800 CFB, 200 Feistel round trips; independent DES/RC4/SHA/GF/Hill/EC vectors.');console.log(JSON.stringify(ctx.stats));
 
 const assessment=JSON.parse(vm.runInContext(`JSON.stringify({bank:chapterQuestionBank,original:practiceCases,papers:mockPapers,drills:transferDrills,inline:chapters.flatMap(c=>c.units).map(u=>u.demo).filter(d=>['practice','classify','sort'].includes(d.type))})`,ctx));
+const commonModulusQuestion=assessment.bank[5].find(q=>q.q.includes('c₁=350'));
+assert.equal(commonModulusQuestion.o[commonModulusQuestion.a],'11');
+assert.equal(assessment.original.find(q=>q.set==='Set 3'&&q.no===1).checks[0].a,11);
 const isEnglish=s=>!/[\u3400-\u9fff]/u.test(s);
 for(const bank of assessment.bank){assert.ok(bank.length>=6);for(const q of bank){assert.ok(q.a>=0&&q.a<q.o.length);assert.equal(new Set(q.o).size,q.o.length);assert.ok(isEnglish(JSON.stringify(q)));}}
 for(const question of [...assessment.original,...assessment.drills,...assessment.papers.flatMap(p=>p.questions)]){assert.ok(isEnglish(JSON.stringify(question)));assert.ok(question.solution.length&&question.rubric.length);for(const check of question.checks){if(check.type==='choice')assert.ok(check.a>=0&&check.a<check.options.length);if(check.type==='number')assert.ok(Number.isFinite(check.a));}}
