@@ -12,6 +12,7 @@ const key=Buffer.from('133457799BBCDFF1','hex'),ks=c.desKeySchedule([...key].fla
 assert.deepEqual(c.ecMul(2,[5,1],2,17),[6,3]);assert.equal(c.ecMul(19,[5,1],2,17),null);
 const ctx={};vm.createContext(ctx);for(const file of ['content.js','enrichment.js','demos.js','advanced-demos.js','assessment-localization.js','quiz.js','practice.js','mock-exams.js','materials.js'])vm.runInContext(fs.readFileSync(file,'utf8'),ctx,{filename:file});
 for(const file of ['book.js',...Array.from({length:7},(_,i)=>`chapter-${i+1}.js`)])vm.runInContext(fs.readFileSync('lessons/'+file,'utf8'),ctx,{filename:'lessons/'+file});
+vm.runInContext(fs.readFileSync('visual-demos.js','utf8'),ctx,{filename:'visual-demos.js'});
 const teaching=JSON.parse(vm.runInContext('JSON.stringify({stories:chapterStories,lessons:chapters.flatMap(c=>c.units.map(u=>u.lesson))})',ctx));
 assert.equal(teaching.stories.length,7);assert.equal(teaching.lessons.length,88);
 const blockKinds=new Set(['paragraph','heading','aside','worked','comparison','flow','dialogue','equation']);
@@ -24,7 +25,10 @@ vm.runInContext(fs.readFileSync('app.js','utf8'),ctx,{filename:'app.js'});
 const chapterHTML=vm.runInContext('chapters.map(renderTeachingChapter).join("")',ctx);
 assert.equal((chapterHTML.match(/class="unit teaching-unit"/g)||[]).length,88);
 assert.equal((chapterHTML.match(/class="slide-notes"/g)||[]).length,88);
-assert.equal((chapterHTML.match(/class="lesson-lab"/g)||[]).length,88);
+assert.equal((chapterHTML.match(/class="lesson-lab"/g)||[]).length,78);
+assert.equal((chapterHTML.match(/class="concept-figure"/g)||[]).length,10);
+assert.equal(vm.runInContext('chapters.flatMap(c=>c.units).filter(u=>["explore","cia"].includes(u.demo.type)).length',ctx),0);
+assert.ok(!chapterHTML.includes('动手试试'));
 assert.equal((chapterHTML.match(/class="chapter-opening"/g)||[]).length,7);
 assert.ok(!/<h4>(是什么|为什么|怎么算)/.test(chapterHTML));
 assert.ok(!chapterHTML.includes('undefined'));assert.ok(!chapterHTML.includes('[object Object]'));
@@ -35,7 +39,7 @@ assert.equal(c.powmod(2,27,55),18);assert.equal(c.powmod(3,27,55),42);
 assert.equal(18**2*42%55,23);assert.equal(c.powmod(23,3,55),12);
 assert.equal(c.powmod(5,6,23),8);assert.equal(c.powmod(5,15,23),19);assert.equal(c.powmod(19,6,23),2);
 assert.equal(c.gfmul(2,0xdb)^c.gfmul(3,0x13)^0x53^0x45,0x8e);
-console.log(`PASS: 88 authored lessons, ${teaching.lessons.reduce((n,l)=>n+l.blocks.length,0)} varied teaching blocks, seven chapter stories, all slide notes and labs preserved; new worked examples checked.`);
+console.log(`PASS: 88 authored lessons, ${teaching.lessons.reduce((n,l)=>n+l.blocks.length,0)} varied teaching blocks, seven chapter stories, 10 inline diagrams and 78 interactive panels; no definition decks; worked examples checked.`);
 vm.runInContext(`globalThis.stats={units:chapters.reduce((s,c)=>s+c.units.length,0),cases:practiceCases.length,checks:practiceCases.reduce((s,c)=>s+c.checks.length,0),glossary:glossary.length,quiz:chapterQuestionBank.reduce((n,q)=>n+q.length,0),chapterTests:chapterQuestionBank.length,mockPapers:mockPapers.length,drills:transferDrills.length,unknown:chapters.flatMap(c=>c.units).filter(u=>!['explore','practice','cia'].includes(u.demo.type)&&!demoFactories[u.demo.type]).map(u=>u.demo.type),blankGlossary:glossary.filter(x=>x.length<3).length,chapterUnits:chapters.map(c=>c.units.length)};`,ctx);
 assert.equal(ctx.stats.units,88);assert.equal(ctx.stats.cases,20);assert.equal(ctx.stats.checks,43);assert.equal(ctx.stats.quiz,44);assert.equal(ctx.stats.chapterTests,7);assert.equal(ctx.stats.mockPapers,3);assert.equal(ctx.stats.drills,6);assert.equal(ctx.stats.blankGlossary,0);assert.deepEqual(Array.from(ctx.stats.unknown),[]);console.log('PASS: 300 AES encrypt/decrypt standard comparisons; 200 S-AES, 800 CFB, 200 Feistel round trips; independent DES/RC4/SHA/GF/Hill/EC vectors.');console.log(JSON.stringify(ctx.stats));
 

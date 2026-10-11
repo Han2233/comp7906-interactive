@@ -23,6 +23,25 @@ p,.explain,.unit h3,.caption{overflow-wrap:anywhere}.lab input[type=text],.lab i
 /* Keep the directory toggle available while the sidebar is hidden. */
 .sidebar-toggle{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:8px 10px;flex-shrink:0;white-space:nowrap;font-size:13px;line-height:1.3}.sidebar-toggle svg{flex-shrink:0}.sidebar-toggle[aria-expanded="false"]{background:var(--soft);border-color:#b6d8d5;color:var(--accent)}.sidebar-collapsed .sidebar-toggle svg{transform:scaleX(-1)}.sidebar[hidden]{display:none}.sidebar-collapsed .layout{grid-template-columns:minmax(0,1fr)}.sidebar-collapsed .lesson-prose{max-width:none}.toplinks{min-width:0;overflow-x:auto;white-space:nowrap}.toplinks>*{flex-shrink:0}
 @media(max-width:760px){.sidebar-toggle-label{display:none}.sidebar-toggle{width:40px;height:40px;padding:8px;min-height:40px}.top-inner{column-gap:10px}}
+/* Diagrams explain relationships; simulations expose observable changes. */
+.concept-figure{margin:28px 0 0;border:1px solid #d4e5e5;border-radius:12px;background:#f8fbfc;padding:20px}
+.concept-figure>figcaption{display:flex;gap:10px;align-items:baseline;line-height:1.7;margin-bottom:8px}.concept-figure>figcaption strong{font-size:15px}.concept-figure .lab-guide{padding:0 0 15px}.concept-figure .lab{border:0;padding:0;margin:0;background:transparent}
+.visual-chain{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:22px;list-style:none;margin:20px 0;padding:0}.visual-chain li{position:relative;min-width:0;border:1px solid #c9dedf;background:#fff;border-radius:10px;padding:14px 12px;line-height:1.7}.visual-chain li+li:before{content:'→';position:absolute;left:-19px;top:12px;color:var(--accent);font-size:18px}.visual-chain strong{display:block;color:var(--deep);font-size:14px;margin-bottom:6px}.visual-chain span{display:block;font-size:13px;color:var(--muted);overflow-wrap:anywhere}
+.visual-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:16px 0}.visual-cards>section{min-width:0;border:1px solid #d9e5ed;border-radius:10px;background:#fff;padding:16px}.visual-cards h5{font-size:14px;line-height:1.7;color:var(--deep);margin:0 0 7px}.visual-cards p{font-size:13px;line-height:1.85;margin:0}
+.scope-rings section{border:1px solid #b8d6d6;background:#e9f4f4;padding:18px;border-radius:13px}.scope-rings section section{margin-top:16px;background:#f2f9f9}.scope-rings section section section{background:#fff}.scope-rings strong,.scope-rings span{display:block;font-size:14px;line-height:1.8}.scope-rings span{font-size:13px;color:var(--muted)}
+.visual-outcome{padding:15px 18px;border-radius:9px;border-left:4px solid var(--accent);background:#edf7f5;margin-top:16px}.visual-outcome strong{display:block;font-size:16px;line-height:1.7}.visual-outcome p{font-size:13px;margin:6px 0 0;line-height:1.8}.visual-outcome.warning{border-color:#bf773b;background:#fff7ec}.tree-root{padding:14px;background:var(--deep);color:white;text-align:center;border-radius:8px;font-size:14px}.attack-tree .visual-cards>section{border-top:3px solid #c78d54}.tool-map>.visual-chain{padding:0 0 14px;border-bottom:1px dashed #c4d9dc}.tool-map>.visual-chain:last-child{border:0;padding:0}
+.switches{display:grid;gap:9px;margin:16px 0}.switches label{display:flex;align-items:baseline;gap:10px;background:#fff;padding:12px;border-radius:8px;border:1px solid #d3e3e4;font-size:14px}.switches input{accent-color:var(--accent);flex-shrink:0}.lab select{max-width:100%;padding:8px;border:1px solid #bed5da;border-radius:7px;background:#fff;color:var(--ink)}
+.packet-flight{display:flex;gap:12px;align-items:center;margin:18px 0;min-width:0}.packet-flight>span{flex:0 1 100px;text-align:center;background:var(--deep);color:#fff;border-radius:9px;padding:12px 7px;font-size:13px;overflow-wrap:anywhere}.packet-track{position:relative;flex:1;min-width:0;padding:6px 0 21px;text-align:center;border-bottom:2px solid #80baba}.packet-track b{font:500 13px/1.8 ui-monospace,monospace;overflow-wrap:anywhere}.packet-track i{position:absolute;bottom:-14px;left:45%;color:var(--accent);font-size:23px;background:#f7fbfb;line-height:1;animation:packet-pass .65s ease-out both}.is-playing .packet-track i{animation:packet-pass .9s ease-out both}
+@keyframes packet-pass{from{left:0;opacity:.4}to{left:90%;opacity:1}}
+.visual-player{margin-top:18px;min-width:0}.player-toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.player-toolbar button{padding:7px 11px;font-size:13px}.player-toolbar label{display:flex;gap:6px;align-items:center;font-size:12px;margin:0}.player-toolbar select{padding:5px}.player-toolbar output{font:12px ui-monospace,monospace;margin-left:auto;color:var(--muted)}
+.flow-rail{display:flex;gap:8px;list-style:none;padding:12px 0;margin:12px 0;overflow-x:auto;max-width:100%;scrollbar-width:thin}.flow-rail li{flex:0 0 128px;min-width:0}.flow-rail button{display:flex;align-items:flex-start;gap:7px;padding:9px 10px;min-height:64px;width:100%;text-align:left;font-size:12px;line-height:1.6;font-weight:500}.flow-rail small{font:11px ui-monospace,monospace;background:#e8f0f4;border-radius:4px;padding:4px;flex-shrink:0}.flow-rail span{overflow-wrap:anywhere}.flow-rail button.current{border-color:var(--accent);background:#e8f6f3;box-shadow:inset 0 -3px var(--accent);font-weight:700}.flow-rail button.current small{background:var(--accent);color:#fff}.flow-rail button.passed{border-color:#93c5bf}
+.player-frame{border:1px solid #cbdfe2;border-radius:10px;background:#fff;padding:20px;min-width:0;animation:frame-enter .25s ease-out}.player-frame>p{font-size:14px;line-height:1.9;margin:12px 0;overflow-wrap:anywhere}.frame-title{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}.frame-title>span{font:11px ui-monospace,monospace;color:var(--accent);background:#e9f6f5;padding:4px 8px;border-radius:5px}.frame-title strong{font-size:16px;line-height:1.7}.state-caption{font-size:12px;color:var(--muted);text-align:center;margin-top:16px}.matrix .cell-changed{outline:2px solid #ac691d;outline-offset:-2px;animation:cell-pop .4s ease-out}.player-frame .visual-chain{margin-bottom:0}
+@keyframes cell-pop{from{transform:scale(.9);background:#fff0ce}to{transform:scale(1)}}@keyframes frame-enter{from{opacity:.5;transform:translateY(3px)}to{opacity:1;transform:none}}
+.oracle-target{padding:15px 18px;background:var(--deep);color:white;border-radius:9px;margin:18px 0;letter-spacing:1px}.feistel-circuit{display:block;width:100%;max-width:540px;height:auto;margin:16px auto}.circuit-wires path{fill:none;stroke:#d2dfe6;stroke-width:3;stroke-linecap:round}.circuit-wires path.lit{stroke:var(--accent);stroke-dasharray:8 4;animation:wire-flow 1.5s linear 1}.circuit-box rect,.circuit-box circle{fill:#eaf6f4;stroke:#79b6b3;stroke-width:1.5}.circuit-text text{text-anchor:middle;font:13px ui-monospace,monospace;fill:var(--deep)}@keyframes wire-flow{from{stroke-dashoffset:36}to{stroke-dashoffset:0}}
+.block-stream{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:20px 0}.block-column{display:flex;flex-direction:column;align-items:stretch;gap:6px;text-align:center;min-width:0}.block-column>span{border:1px solid #d3e1e8;background:white;border-radius:8px;padding:9px 5px;font:12px ui-monospace,monospace}.block-column b{display:block;font:700 20px/1.7 ui-monospace,monospace}.block-column small{display:block;font:11px/1.7 -apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif;letter-spacing:0}.block-column>i{font-size:16px;font-style:normal;color:var(--accent);line-height:1}.block-column button{min-width:0;padding:9px 5px;color:var(--deep);font-size:12px}.block-column button.repeated{background:#e8f5f3;border-color:#7fbdb5}.block-column button.tampered,.block-column .block-damaged{border-color:#bf705c;background:#fff0e9;color:#923921}
+@media(max-width:760px){.concept-figure{padding:15px;margin-top:22px}.concept-figure>figcaption{align-items:flex-start}.visual-chain{grid-template-columns:minmax(0,1fr);gap:21px}.visual-chain li+li:before{content:'↓';top:-25px;left:calc(50% - 5px)}.visual-chain li{padding:12px}.visual-cards{grid-template-columns:minmax(0,1fr)}.scope-rings section{padding:12px}.packet-flight{gap:6px}.packet-flight>span{flex-basis:65px;font-size:12px}.packet-track b{font-size:11px}.player-frame{padding:14px}.flow-rail li{flex-basis:112px}.player-toolbar button{min-height:44px}.player-toolbar output{margin-left:0}.block-stream{gap:5px}.block-column button,.block-column>span{font-size:10px;padding:8px 2px}.block-column b{font-size:17px}.block-column small{font-size:10px}.circuit-text text{font-size:14px}}
+@media(prefers-reduced-motion:reduce){.packet-track i,.is-playing .packet-track i,.cell-changed,.player-frame,.circuit-wires path.lit{animation:none!important}}
+@media print{.concept-figure .lab{display:block!important}.concept-figure{break-inside:avoid;background:#fff}.player-toolbar,.flow-rail{display:none}}
 </style></head><body><header class="topbar"><div class="top-inner"><button id="sidebar-toggle" class="sidebar-toggle" type="button" aria-controls="course-sidebar" aria-expanded="true" aria-label="收起目录" title="收起目录"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M9 4v16M16 9l-3 3 3 3"></path></svg><span class="sidebar-toggle-label">收起目录</span></button><a class="brand" href="#top">网安<span>实验室</span></a><nav class="toplinks" aria-label="顶部导航"><a href="#chapter-1">章节学习</a><a href="#midterm-focus">期中重点</a><a href="#practice">原题训练</a><a href="#materials">资料导读</a><a href="#chapter-test-1">章节自测</a><a href="#mock-exams">期中模拟</a><a href="#glossary">术语速查</a><button id="download">下载离线版</button></nav><span id="progress-label" class="progress-label"></span></div></header><div class="layout" id="top"><aside class="sidebar" id="course-sidebar"><div class="side-title">COMP7906 · 学习目录</div><nav id="sidebar-nav" class="sidebar-nav" aria-label="章节目录"></nav><div class="side-note"><strong>按课件顺序学习</strong>从案例进入，沿着推理读懂概念，再打开实验验证。每段附原课件页码，细节可展开对照。<br><br>学习进度仅保存在当前浏览器。离线版无需登录或联网。</div></aside><main class="main"><section class="intro"><div><div class="eyebrow">COMP7906 · Introduction to Cyber Security</div><h1>从一张成绩表，<br>学会看懂网络安全。</h1><p>先看事情怎样出问题，再一步步理解怎样保护它。从校园案例走到密码计算和认证协议，沿着课件第 1–7 讲，学会解释、推算，也学会追问条件。</p><p class="reading-invitation">不用先背定义。跟着问题往下读，遇到公式就一起算一遍；想亲手验证时，再打开旁边的“动手试试”。</p><p class="caption">本版范围：已提供的 7 讲及配套资料；后续主课件待补。</p><div class="row" style="margin-top:18px"><span class="chip" id="course-stats">7 讲课件学习</span><span class="chip">7 章 · 44 道英文自测</span><span class="chip">3 套期中模拟卷</span><span class="chip">离线可用</span></div></div><div class="mini-lab" id="intro-lab"><h3>Quick check: which security goal?</h3><div class="row"><button class="selected" data-explain="Confidentiality: unauthorized people read the information. Encryption and access control help protect it.">Grades read without permission</button><button data-explain="Integrity: information is changed without authorization. Protect content and control who may change it.">Grades changed without permission</button><button data-explain="Availability: authorized users cannot use a service when they need it.">Service unavailable</button></div><p id="intro-result">Confidentiality: unauthorized people read the information. Encryption and access control help protect it.</p></div></section><div id="chapters"></div><section class="chapter" id="practice" lang="en"><header class="chapter-header"><div class="eyebrow">ORIGINAL COMPANION EXERCISES</div><h2>Companion exercises · English edition</h2><p id="practice-count"></p><p>Questions follow the original material order and retain its numbers, conditions and subparts. Write a complete answer, then check the diagnostic checkpoints and compare your reasoning with the model answer. The Suggested Outlines for Sets 1–2 are hints; these worked answers also state assumptions and necessary corrections.</p><label>Source <select id="practice-filter"><option value="all">All materials</option><option>Set 1</option><option>Set 2</option><option>Set 3</option><option>Set 4</option><option>Sample Midterm</option></select></label></header><div id="practice-content"></div></section>
 <section class="chapter" id="mock-exams" lang="en"><header class="chapter-header"><div class="eyebrow">APPLY WHAT YOU KNOW</div><h2>Midterm mock papers &amp; transfer drills</h2><p>Three original 60-minute, 20-mark papers, modeled on the supplied sample: Q1 has 14 marks and Q2 has 6. Six further drills extend Sets 2–4. These are authored practice variations, not past papers or predictions of this year’s exam.</p><p>Attempt in English without notes. Show equations, units, assumptions and reasoning. Numeric checkpoints are diagnostic; the written-paper mark is self-assessed against the suggested marking points.</p><label>Choose a paper <select id="mock-filter"><option value="A">Mock Midterm A</option><option value="B">Mock Midterm B</option><option value="C">Mock Midterm C</option><option value="drills">Transfer drills · Sets 2–4</option></select></label><p id="mock-description"></p><div class="mock-toolbar"><strong id="mock-clock" role="timer">60:00</strong><div class="row"><button class="primary" id="start-mock">Start 60-minute attempt</button><button id="finish-mock" disabled>Finish attempt</button><button id="reset-mock">Reset selected paper</button></div></div><p class="caption">Starting hides model answers and disables answer checks until you finish or time expires. Switching or resetting a paper clears that paper’s current answers.</p><div id="mock-score" role="status"></div></header><div id="mock-content"></div></section>
 <section class="chapter unit" id="materials"><div class="eyebrow">KNOW WHAT EACH FILE IS FOR</div><h2>资料导读与覆盖范围</h2><p id="coverage-result"></p><aside class="analogy"><b>学习路线</b>第 1–3 讲 → Set 1；第 4 讲 → 09/15 笔记；第 5 讲 → 简化算法与 09/22、09/29 笔记；第 6–7 讲 → Set 2–4；最后用英文期中样卷和 3 套模拟卷限时 1 小时书面作答。</aside><h3 id="course-scope">课程说明与待补范围</h3><p>Course Info 2026（14 页）是课程说明。它列出的评核为作业 30%、闭卷期中 20%、闭卷期末 50%；实际安排以当前教师公告为准，拟定进度里的周次／日期疑点也应核对。</p><div class="table-wrap"><table><tr><th>范围</th><th>网页状态</th></tr><tr><td>已提供 Lecture 1–7、教学算法与复习资料</td><td>讲次、细化解释、操作实验与原题训练</td></tr><tr><td>量子计算 / 后量子密码（Quantum Computing / Post-quantum Cryptography）</td><td>第 1 讲仅概览；后续主课件未提供，待补课件</td></tr><tr><td>访问控制与安全模型（Access Control / Security Models）</td><td>已学授权与策略；完整模型课件未提供，待补课件</td></tr><tr><td>Web 安全与安全应用开发（Web Security / Secure Application Development）</td><td>后续主课件未提供，待补课件</td></tr><tr><td>安全分析流程、工具和选定主题（Security Analytics Process, Tools and Selected Topics）</td><td>后续主课件未提供，待补课件</td></tr></table></div><p>现有 Lecture 1 中 TLS、IPsec、S/MIME、SET 是应用概览；没有把它们标成已经学完的完整协议课程。</p><h3>除主课件外的 14 份资料是什么</h3><div id="companion-list"></div><h3 id="handwriting-guide">三份手写笔记：18 页阅读索引</h3><div id="handwriting-list"></div><h3>13 份历年试卷：怎么使用</h3><p>这些共 77 页，是考试原题；本地未找到配套标准答案。A／B／C 是课程或试卷后缀，不能仅凭字母推断难度或与 2026 同范围。部分旧卷写开卷，不能据此改变当前闭卷要求。</p><details><summary>展开历年卷文件清单</summary><div id="old-paper-list"></div></details><div class="table-wrap"><table><tr><th>旧卷中的主题例子</th><th>定位</th><th>当前学习状态</th></tr><tr><td>Bell–LaPadula / Biba 安全模型</td><td>2018 A Q3；2021 A Q4；2022 B Q1；2023 B Q1</td><td>完整后续课件待补</td></tr><tr><td>存储型 / 反射型 XSS（Cross-Site Scripting）</td><td>2023 A Q1</td><td>完整 Web 章节待补</td></tr><tr><td>跨站请求伪造（Cross-Site Request Forgery, CSRF）与 HTTPS</td><td>2025 A Q2</td><td>完整 Web 章节待补</td></tr><tr><td>认证类别与信号（Authentication Categories / Signals）</td><td>2025 A Q4</td><td>先复习第 1、7 讲；旧卷具体扩展待后续</td></tr><tr><td>检查到使用的竞态（Time-of-check to Time-of-use, TOCTOU）与安全失败顺序</td><td>2025 B Q1</td><td>完整安全开发章节待补</td></tr><tr><td>勒索软件 / 备份（Ransomware / Backup）</td><td>2025 B Q2</td><td>第 1 讲有恢复概览；题目细节另练</td></tr><tr><td>支持向量机（Support Vector Machine, SVM）与分析</td><td>2025 B Q5；2025 C Q4</td><td>安全分析课件待补</td></tr><tr><td>电子币认证器 / 消息认证码（Authenticator / Message Authentication Code, MAC）</td><td>2025 C Q2–3</td><td>原语与协议基础已学；原题构造另练</td></tr></table></div><p class="caption">这是资料清单与题型导读，未声称已逐题解答 13 份历年卷，也不预测本年考题。先练已学范围；待取得后续讲义，再按课件顺序扩展。</p></section>
@@ -782,6 +801,233 @@ M('6.12','课件第 46 页：四条消息如何分发秘密密钥','extension','
 M('7.01','协议与协议层攻击','extension','Set 4 Q3、Q5','有效密码结果不自动证明当前身份和会话；按攻击者能力检查消息绑定。');
 M('7.02','协议 1：重放与时间戳','extension','Set 4 Q5 的新鲜性背景','区分重放与预取；原题还需分析可预测 nonce 怎样让旧授时回复被接受。');
 M('7.03','协议 2：挑战响应与反射','extension','配套协议分析的延伸；样卷未直接考查','能追踪并行会话，解释区分角色、方向和挑战的作用。');
+</script><script>// Visual teaching replaces definition buttons; assessment banks remain separate.
+const visualStops=new WeakMap();
+const visualEscape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function visualChain(items){return `<ol class="visual-chain">${items.map(([title,text])=>`<li><strong>${visualEscape(title)}</strong><span>${visualEscape(text)}</span></li>`).join('')}</ol>`;}
+function visualCards(items){return `<div class="visual-cards">${items.map(([title,text])=>`<section><h5>${visualEscape(title)}</h5><p>${visualEscape(text)}</p></section>`).join('')}</div>`;}
+function visualOutcome(title,text,ok=true){return `<div class="visual-outcome ${ok?'success':'warning'}"><strong>${visualEscape(title)}</strong><p>${visualEscape(text)}</p></div>`;}
+function visualPacket(from,to,payload){return `<div class="packet-flight" role="img" aria-label="${visualEscape(from+' → '+to+'：'+payload)}"><span>${visualEscape(from)}</span><div class="packet-track"><b>${visualEscape(payload)}</b><i aria-hidden="true">→</i></div><span>${visualEscape(to)}</span></div>`;}
+
+// One playback controller per mounted process. No animation runs until requested.
+// Remounting, closing its panel or hiding the page stops playback immediately.
+stepper=function(root,steps,options={}){
+ visualStops.get(root)?.();
+ let index=0,timer=null;
+ const language=options.language||(/^[\x00-\x7F]*$/.test(steps.map(s=>s.title||s[0]).join(''))?'en':'zh');
+ const en=language==='en',labels=en?['Previous','Next','Restart','Play','Pause','Speed','Step']:['上一步','下一步','重来','播放流程','暂停','播放速度','步骤'];
+ const title=s=>s.title||s[0],text=s=>s.text||s[1];
+ root.innerHTML=`<div class="visual-player"><div class="player-toolbar"><button data-action="prev">${labels[0]}</button><button class="primary" data-action="next">${labels[1]}</button><button data-action="play" aria-pressed="false">${labels[3]}</button><button data-action="reset">${labels[2]}</button><label>${labels[5]} <select data-speed><option value="2400">${en?'Slow':'慢速'}</option><option value="1300">${en?'Normal':'正常'}</option></select></label><output data-count></output></div><ol class="flow-rail" aria-label="${en?'Process timeline':'流程时间线'}">${steps.map((s,i)=>`<li><button data-step="${i}"><small>${String(i+1).padStart(2,'0')}</small><span>${visualEscape(title(s))}</span></button></li>`).join('')}</ol><div class="player-frame" aria-live="polite"></div></div>`;
+ const panel=root.closest('details'),frame=$('.player-frame',root),play=$('[data-action="play"]',root);
+ const stop=()=>{if(timer!==null)clearInterval(timer);timer=null;play.textContent=labels[3];play.setAttribute('aria-pressed','false');root.classList.remove('is-playing')};
+ const draw=()=>{
+  const s=steps[index],prior=steps[index-1],state=s.state;
+  frame.innerHTML=`<div class="frame-title"><span>${labels[6]} ${index+1}</span><strong>${visualEscape(title(s))}</strong></div>${s.message?visualPacket(...s.message):''}<p>${text(s)}</p>${s.diagram||''}${state?`<div class="state-caption">${en?'Current state · changed cells outlined':'当前状态 · 描边格子表示本步发生变化'}</div>${matrixHTML(state,options.n||4)}`:s.extra||''}`;
+  if(state&&prior?.state)$$('.matrix span',frame).forEach((cell,i)=>{const n=options.n||4,j=(i%n)*n+Math.floor(i/n);cell.classList.toggle('cell-changed',state[j]!==prior.state[j]);cell.title=(en?'Previous: ':'上一步：')+hex(prior.state[j],n===2?1:2)+' → '+hex(state[j],n===2?1:2)});
+  $('[data-count]',root).textContent=`${index+1} / ${steps.length}`;
+  $('[data-action="prev"]',root).disabled=index===0;$('[data-action="next"]',root).disabled=index===steps.length-1;
+  $$('[data-step]',root).forEach((b,i)=>{b.classList.toggle('current',i===index);b.classList.toggle('passed',i<index);if(i===index)b.setAttribute('aria-current','step');else b.removeAttribute('aria-current')});
+  const rail=$('.flow-rail',root),active=$('[data-step="'+index+'"]',root).parentElement,x=active.offsetLeft-rail.offsetLeft;
+  if(x<rail.scrollLeft||x+active.offsetWidth>rail.scrollLeft+rail.clientWidth)rail.scrollLeft=Math.max(0,x-12);
+ };
+ const start=()=>{stop();if(index===steps.length-1)index=0;play.textContent=labels[4];play.setAttribute('aria-pressed','true');root.classList.add('is-playing');draw();timer=setInterval(()=>{if(!root.isConnected||document.hidden||(panel&&!panel.open)){stop();return}if(index<steps.length-1){index++;draw()}if(index===steps.length-1)stop()},Number($('[data-speed]',root).value));};
+ $('[data-action="prev"]',root).onclick=()=>{stop();index=Math.max(0,index-1);draw()};
+ $('[data-action="next"]',root).onclick=()=>{stop();index=Math.min(steps.length-1,index+1);draw()};
+ $('[data-action="reset"]',root).onclick=()=>{stop();index=0;draw()};
+ play.onclick=()=>timer!==null?stop():start();$('[data-speed]',root).onchange=()=>{if(timer!==null)start()};
+ $$('[data-step]',root).forEach(b=>b.onclick=()=>{stop();index=+b.dataset.step;draw()});
+ const visibility=()=>{if(document.hidden)stop()},close=()=>{if(!panel.open)stop()};
+ document.addEventListener('visibilitychange',visibility);panel?.addEventListener('toggle',close);
+ visualStops.set(root,()=>{stop();document.removeEventListener('visibilitychange',visibility);panel?.removeEventListener('toggle',close)});
+ draw();
+};
+
+demoFactories.visualDiagram=(r,d)=>{r.innerHTML=d.html;};
+function bindVisual(number,type,title,guide,data={},diagram=false){
+ const [ch,no]=number.split('.').map(Number),u=chapters[ch-1].units[no-1];
+ u.demo={type,...data};Object.assign(u.lesson,{labTitle:title,guide,diagram,labTag:diagram?'看图理解':type==='visualProtocol'?'消息流':'情境实验'});
+}
+
+// Readable diagrams belong next to the explanation, without a compulsory click.
+bindVisual('1.01','visualDiagram','同一份成绩，穿过三层保护范围','从内向外读：资产并不只是一台联网电脑。',{html:`<div class="scope-rings"><section><strong>网络空间安全 Cyber Security</strong><span>人、在线服务、应用、联网设备和依赖关系</span><section><strong>网络防护 Network Protection</strong><span>连接、传输路径、正常可用的服务</span><section><strong>信息安全 Information Security</strong><span>成绩、身份、记录；即使打印在纸上也要保护</span></section></section></section></div><p class="caption">这是本课情境的阅读示意，三者有交叉，不能把所有信息资产都视为网络资产。</p>`},true);
+bindVisual('1.08','visualDiagram','一条原则，怎样走到一次登录','箭头表示逐步落实；指南是辅助建议，不是强制步骤。',{html:visualChain([['策略 Policy','只允许授权者访问成绩'],['标准 Standard','按本例组织要求，必须使用双因素认证'],['程序 Procedure','申请 → 主管审批 → 开通权限']])+visualCards([['指南 Guideline · 旁路建议','推荐使用便于记忆的长口令，帮助满足保护目标。']])},true);
+bindVisual('1.12','visualDiagram','把密码工具装进同一封安全邮件','沿着数据走，区分“正文变密文”和“产生证明”。',{html:`<div class="tool-map">${visualChain([['正文 P','长消息需要保密'],['AES / IDEA','对称密码处理正文'],['密文 C','接收者用会话密钥恢复']])}${visualChain([['会话密钥 K','双方需要共同的秘密'],['RSA 包装 / DH、ECDH 协商','不同方法建立或传递 K'],['接收者获得 K','公钥身份仍需确认']])}${visualChain([['正文摘要 H(P)','哈希不会隐藏正文'],['RSA / DSA 等签名方案','使用发送者私钥'],['接收者验证签名','使用发送者可信公钥']])}</div><p class="caption">这里按用途画关系；ECC 是曲线密码算法家族。DES 有效密钥 56 位；3DES 的密钥材料长度不等于所有攻击下的安全强度。AES 分组固定 128 位，密钥可为 128/192/256 位。</p>`},true);
+bindVisual('1.16','visualDiagram','证书的信任不能从姓名开始','先有可信起点，才有逐级签名验证。横跨两个组织也要走完整条链。',{html:visualChain([['本地信任根 Root CA','你已经信任的 CA 公钥'],['中间 CA / 跨认证 CA','逐级验证签名、CA 权限及路径限制'],['服务器证书 Certificate','Subject 是主体；Issuer 是签发者'],['准备使用主体公钥','再核对身份、用途、有效期与撤销']])+visualOutcome('链上任意一环不满足条件，就不能继续信任','证书数量多并不能补上一个缺失的可信起点。',false)},true);
+bindVisual('1.17','visualDiagram','一次业务访问背后的完整防线','这些工具各有位置；系统还需要人、监控与恢复安排。',{html:visualChain([['用户与培训','认识敏感资料，按要求操作'],['身份入口','Kerberos 等认证工具'],['通信路径','TLS / IPsec；邮件可用 S/MIME'],['业务服务与记录','运行监控，调查异常'],['恢复与演练','备份、替代资源、人员安排']])+visualCards([['评估与认证 · 覆盖整条链','检查测试范围、独立性、环境和有效条件；产品标签不是对所有场景的保证。']])},true);
+bindVisual('2.03','visualDiagram','“只有管理员能进机房”怎样从一句话变成证据','同一个结论要跨来源核对，三类证据互相补充。',{html:visualCards([['管理 Management','访谈：“谁有权限？” → 文件：“批准过谁？”'],['物理 Physical','现场门锁、出入观察 → 是否真的限制非授权人员？'],['技术 Technical','门禁记录、账号与配置 → 实际发生过哪些访问？']])+visualChain([['交叉核对','名单、现场与日志是否一致？'],['发现差异','有权限不代表需要权限；有记录不代表有人审查'],['写入报告','标明采样时间、范围、缺失记录和不确定性']])},true);
+bindVisual('3.04','visualDiagram','一份成绩表，三条不同责任线','从左到右读交接关系；执行操作的人不一定有权决定谁可访问。',{html:visualChain([['所有者 Owner · 决定','定分类、保护要求；批准和撤销访问'],['保管者 Custodian · 落实','配置权限、执行备份、维护系统'],['使用者 User · 遵守','只按授权访问和处理，报告异常']])+visualCards([['管理层 Management · 持续监督','保证策略被分发和理解、程序被执行；发现缺口后纠正。']])},true);
+bindVisual('6.06','visualDiagram','先问攻击者拿到了什么，再找攻击路径','顺着证据读攻击树：只有条件成立，攻击名称才有意义。',{html:`<div class="attack-tree"><div class="tree-root">RSA 使用方式与实现：哪里多暴露了信息？</div>${visualCards([['参数 / 消息结构','小 d、未经编码的低 e、已知相关消息 → 检查各自成立界限。防护：合适参数和标准编码。'],['输出 / 执行痕迹','故障签名、数据相关时间 → 可能泄露因子或秘密运算信息。防护：输出回验与抗泄漏实现。'],['解密反馈接口','不同错误、状态或时间 → 可能形成填充预言机。防护：正确验证与一致错误处理。']])}</div><p class="caption">“低 e”不是“必然破解”；相关消息、小根等攻击还依赖具体代数关系和界限。</p>`},true);
+bindVisual('6.11','visualDiagram','拿到公钥以后，信任从哪里来？','比较被依赖的可信起点，而不是比较传了多少个文件。',{html:visualCards([['公开公告 Announcement','任何人可声称“这是我的钥匙” → 不能单靠公告防冒名。'],['公共目录 Directory','登记机构负责姓名—公钥绑定 → 登记、更新和读取渠道要可靠。'],['在线公钥机构 Authority','请求时取得带认证的新响应 → 依赖机构在线及其认证密钥。'],['公钥证书 Certificate','CA 签名绑定身份和公钥 → 可离线验签，仍需有效性与撤销检查。']])+visualChain([['已有可信起点','机构或 CA 的认证密钥'],['验证身份—公钥绑定','检查响应或证书'],['使用公钥建立会话','才进入会话密钥传递 / 协商']])},true);
+bindVisual('7.01','visualDiagram','一份有效密文，要经过哪些“含义检查”？','密码检查通过只到达第一个闸门，后面仍可能拒绝。',{html:visualChain([['密码结果有效？','能解密 / 签名验证成功'],['身份和收件人对吗？','谁生成、打算交给谁'],['属于当前会话吗？','挑战、上下文与协议方向'],['足够新鲜且未重放？','时间、随机数、重复记录'],['才作出认证决定','明确本次证明的安全目标']])+visualOutcome('攻击者可以搬运一份真的消息','协议分析先列出参与方持有的密钥，再逐条检查字段被谁保护、被谁核对。',false)},true);
+
+demoFactories.visualCIA=r=>{
+ r.innerHTML=`<div class="controls">${selectHTML('event','让哪件事发生？',[[0,'陌生人读取成绩'],[1,'把成绩 60 改成 90'],[2,'选课服务中断']])}<label><input type="checkbox" data-v="guard"> 为这件事启用对应控制</label></div><div class="result" aria-live="polite"></div>`;
+ watch(r,()=>{const event=+getV(r,'event'),guard=$('[data-v="guard"]',r).checked;
+  const cases=[{goal:'机密性 Confidentiality',action:'读取',control:'访问授权检查',after:'成绩被陌生人看见',safe:'拒绝陌生人的读取请求'}, {goal:'完整性 Integrity',action:'修改',control:'修改授权与审批',after:'成绩从 60 变成 90',safe:'拒绝未授权修改，成绩仍为 60'}, {goal:'可用性 Availability',action:'使用',control:'本例备用服务可用',after:'有权限的学生无法选课',safe:'切换到备用服务，继续选课'}],x=cases[event];
+  result(r,visualPacket(event===2?'学生':'未授权者','成绩系统',x.action+'请求')+visualChain([['原状态','成绩 60；服务可用'],[x.control,guard?'本例控制生效':'未启用对应控制'],['可观察的结果',guard?x.safe:x.after]])+visualOutcome(x.goal,guard?'控制改变了结果；现实系统仍需验证控制有效性。':'同一个系统，不同事件损害了不同安全目标。',guard));
+ });
+};
+bindVisual('1.02','visualCIA','让成绩系统出一次事故，再加上控制','换一种事故，观察成绩、读者和服务状态怎样变化；再打开对应控制比较结果。',{},false);
+
+demoFactories.visualDefense=r=>{
+ const controls=[['patch','预防：修补已知漏洞'],['detect','检测：有人处理告警'],['recover','恢复：备份可用且已演练']];
+ r.innerHTML=`<p class="hint">教学情境：攻击尝试利用一个已知且可修补的漏洞，破坏成绩系统。</p><div class="switches">${controls.map(([id,l])=>`<label><input type="checkbox" data-v="${id}"> ${l}</label>`).join('')}</div><div class="result" aria-live="polite"></div>`;
+ watch(r,()=>{let p=$('[data-v="patch"]',r).checked,d=$('[data-v="detect"]',r).checked,b=$('[data-v="recover"]',r).checked;
+ result(r,visualChain([['攻击进入',p?'已知入口被补丁阻断':'漏洞仍在：攻击进入'],['发现与响应',p?'记录被阻断的尝试':d?'告警被处理，启动调查与隔离':'没有人处理告警，破坏继续'],['业务恢复',p?'服务保持运行':b?'本例备份可恢复成绩，但仍需调查入口':'没有可用恢复副本，停机与数据损失持续'],['下一轮改进','复查补丁、流程、培训和预算']])+visualOutcome(p?'本例攻击被预防':b?'可以恢复，不等于未发生事故':'系统仍有无法恢复的损失','技术、人员和维护流程必须一起工作；勾选框是条件模型，不是成功概率保证。',p||b));});
+};
+bindVisual('1.04','visualDefense','拆掉一层防线，会发生什么？','任意组合预防、检测、恢复三层，观察同一次攻击在哪一步被拦住、又留下什么后果。');
+
+demoFactories.visualAttack=r=>{
+ r.innerHTML=`<div class="controls">${selectHTML('attack','攻击动作',[[0,'窃听 Eavesdropping'],[1,'篡改 Modification'],[2,'重放 Replay'],[3,'阻断 Denial of Service']])}${selectHTML('guard','通信保护',[[0,'无额外保护'],[1,'仅加密 Encryption'],[2,'认证加密 + 会话 / 重放检查']])}</div><div class="result" aria-live="polite"></div>`;
+ watch(r,()=>{let a=+getV(r,'attack'),g=+getV(r,'guard'),names=['窃听','篡改','重放','阻断'];let final=a===0?(g?'正文内容无法直接读出，但仍可观察流量':'旁观者读到了成绩 60'):a===1?(g===2?'认证检查拒绝被修改的消息':'接收者缺少完整性保证；不能只因能解密就信任内容'):a===2?(g===2?'本例会话 / 重放检查拒绝重复请求':'旧消息可能再次被当作有效请求'): '消息未到达；密码保护不能让被阻断的链路自动恢复';
+ result(r,visualPacket('发送者','接收者',g?'受保护消息':'成绩 = 60')+visualChain([['攻击者在途中',names[a]],[g===2?'认证与会话检查':g===1?'只做解密':'直接接收',a===3?'等不到消息':'尝试处理收到的数据'],['结果',final]])+visualOutcome(a===0?'被动攻击：观察信息':'主动攻击：改变通信行为',a===1&&g===1?'单独加密不自动提供完整性；具体篡改效果取决于算法和模式。':a===3?'可用性还依赖容量、冗余、响应与恢复。':'改变保护条件，再比较结果。',a!==3&&((a===0&&g>0)||g===2)));});
+};
+bindVisual('1.05','visualAttack','把消息交给不同能力的攻击者','切换窃听、篡改、重放、阻断，再比较“仅加密”和包含认证、会话检查的保护。');
+
+demoFactories.visualTreatment=r=>{
+ r.innerHTML=`<p class="hint">手机价值 HK$9000，每月丢失概率 5%。模型假定全额保险，追踪仅影响丢失后的找回概率。</p><div class="controls">${selectHTML('plan','处理方式',[[0,'接受：不购买控制'],[1,'缓解：追踪应用，每月 HK$150'],[2,'转移：全额保险，每月 HK$250']])}${slider('recovery','应用找回成功率（%）',85,0,100)}</div><div class="result" aria-live="polite"></div>`;
+ watch(r,()=>{let plan=+getV(r,'plan'),rec=getN(r,'recovery')/100,p=.05,base=9000*p,cost=[0,150,250][plan],residual=plan===0?base:plan===1?base*(1-rec):0;
+ result(r,visualChain([['事件概率仍是 5% / 月','三种选择都不假定手机不会丢'],['事件后的后果',plan===0?'自己承担损失':plan===1?`以 ${(rec*100).toFixed(0)}% 概率找回`:'本模型由保险补偿手机价值'],['个人剩余预期损失',`HK$${residual.toFixed(2)} / 月`],['加上控制费用',`HK$${cost} + ${residual.toFixed(2)} = ${(cost+residual).toFixed(2)} / 月`]])+visualOutcome('剩余损失 + 控制费用',plan===2?'经济损失被转移，个人数据泄露、时间损失等仍可能存在，未计入本简化模型。':'移动找回率，再比较追踪与保险的总成本；组合控制的效果不能随意相加。'));});
+};
+bindVisual('2.07','visualTreatment','同样丢手机，三种处理改变了什么？','先选接受、缓解或转移，再拖动找回率；比较事件概率、剩余损失和每月总成本。');
+
+demoFactories.visualLifecycle=r=>{
+ r.innerHTML=`<p class="hint">教职员离职：主数据库、导出表格、备份和账号不是同一个对象。</p><div class="switches">${[['account','撤销账号权限'],['copy','处理授权设备和导出副本'],['backup','按保留规则管理备份']].map(([id,l])=>`<label><input data-v="${id}" type="checkbox"> ${l}</label>`).join('')}</div><div class="result" aria-live="polite"></div>`;
+ watch(r,()=>{let a=$('[data-v="account"]',r).checked,c=$('[data-v="copy"]',r).checked,b=$('[data-v="backup"]',r).checked;
+ result(r,visualChain([['创建与分类 · Owner','决定哪些成绩资料可用、保存多久'],['访问 · Custodian',a?'已撤销离职账号':'账号仍可进入主数据库'],['复制与传输 · User / Custodian',c?'按授权规则回收设备、核查和处理副本':'导出表格仍留在设备或其他位置'],['保留与销毁 · Owner / Custodian',b?'备份按保留期、访问和销毁规则处理':'备份用途、保留期限与访问责任不清'],['监督 · Management','确认交接完成并留下可核对的记录']])+visualOutcome(a&&c&&b?'本例交接检查已覆盖各环节':'还有信息或访问职责没有收尾',a&&!c?'账号关掉了，先前导出的文件仍可能存在。':'保留期内的备份不应因为离职而一律删除；应依据规则处理。',a&&c&&b));});
+};
+bindVisual('3.05','visualLifecycle','关掉账号，数据就全部收回来了吗？','逐项完成离职交接，追踪主数据库以外的副本、备份和责任。');
+
+demoFactories.visualOracle=r=>{
+ const models=[['密文唯知 Ciphertext-only','only'],['已知明文 Known-plaintext','known'],['选择明文 Chosen-plaintext','encrypt'],['选择密文 Chosen-ciphertext','decrypt'],['选择文本 Chosen-text','both']];
+ r.innerHTML=`<p class="hint">教学黑盒使用未知偏移的 Caesar 密码。这里只比较查询权限，不用它代表现代密码的安全性。</p><label>攻击者权限<select data-v="model">${models.map(([l,v])=>`<option value="${v}">${l}</option>`).join('')}</select></label><div class="oracle-target mono">目标密文：VHFUHW</div><div data-known></div><div class="controls">${inputText('query','向黑盒查询的英文文本','AAAAAA')}<div class="row"><button data-encrypt>请求加密 Encrypt</button><button data-decrypt>请求解密 Decrypt</button></div></div><div class="result" aria-live="polite"></div>`;
+ const encode=(s,k)=>cleanLetters(s).slice(0,30).replace(/[A-Z]/g,x=>String.fromCharCode(65+mod(x.charCodeAt(0)-65+k,26)));
+ const draw=()=>{let m=getV(r,'model');$('[data-encrypt]',r).disabled=!['encrypt','both'].includes(m);$('[data-decrypt]',r).disabled=!['decrypt','both'].includes(m);$('[data-known]',r).innerHTML=m==='known'?visualChain([['已知真实明文','HELLO'],['对应真实密文','KHOOR']]):'';result(r,visualOutcome('权限决定你能主动观察什么','只有密文时按钮不可用；已知明文只给现成样本；选择攻击允许把自己准备的输入交给黑盒。受保护的目标密文本身不允许直接查询解密。'));};
+ const query=decrypt=>{const q=cleanLetters(getV(r,'query')).slice(0,30);if(!q){result(r,'请输入至少一个英文字母。');return}if(decrypt&&q==='VHFUHW'){result(r,visualOutcome('拒绝查询受保护目标','选择密文实验不能通过直接请求目标明文来作弊。',false));return}result(r,visualPacket('攻击者','教学黑盒',(decrypt?'解密 ':'加密 ')+q)+visualChain([['本次输入',q],['黑盒返回',encode(q,decrypt?-3:3)],['现在可以观察','比较输入和输出的关系；现代方案应能抵抗其设计目标中的查询能力。']]));};
+ $('[data-v="model"]',r).oninput=draw;$('[data-encrypt]',r).onclick=()=>query(false);$('[data-decrypt]',r).onclick=()=>query(true);draw();
+};
+bindVisual('5.01','visualOracle','给你一个密码黑盒，你究竟能问什么？','换一种攻击权限，亲自请求加密或解密。按钮是否可用、能得到哪些样本，都会随权限改变。');
+
+demoFactories.visualKerberos=r=>{
+ r.innerHTML=`<div class="controls">${selectHTML('version','教学版本',[[1,'第一次：明文口令 + 服务票'],[2,'第二次：TGS + 登录保护']])}${selectHTML('action','攻击者动作',[[0,'观察登录链路'],[1,'复制并提交一张仍有效的服务票']])}</div><div class="result" aria-live="polite"></div>`;
+ watch(r,()=>{let v=+getV(r,'version'),a=+getV(r,'action');result(r,visualChain(v===1?[['C → AS','身份 + 明文口令'],['AS → C','发给 S 的服务票'],['C → S','转交服务票']]:[['C → AS','登录请求'],['AS → C','以客户端密钥保护登录包与 TGT'],['C → TGS → C','用 TGT 申请服务票'],['C → S','转交服务票']])+visualOutcome(a===0?(v===1?'观察者能看到明文口令':'本版避免了明文传送口令'):'两版仍需持有者证明',a===0?'更改教学版本，看它具体修补了哪一个问题。':'一张仍有效的真票不能单独证明当前递交者持有客户秘密；第三次尝试加入新鲜认证器。',a===0&&v===2));});
+};
+bindVisual('7.07','visualKerberos','让攻击者试一次，看看版本升级修了哪里','比较链路观察与有效票据复制：第二次尝试修了明文口令，仍缺少当前持有者证明。');
+
+demoFactories.visualProtocol=(r,d)=>{
+ r.innerHTML=(d.variants?`<label>推演情境<select data-v="variant">${d.variants.map((v,i)=>`<option value="${i}">${visualEscape(v.name)}</option>`).join('')}</select></label>`:'')+'<div data-process></div>';
+ const draw=()=>{const v=d.variants?d.variants[+getV(r,'variant')]:d;stepper($('[data-process]',r),v.steps,{language:'zh'})};
+ if(d.variants)$('[data-v="variant"]',r).oninput=draw;draw();
+};
+const VStep=(title,text,from,to,payload)=>({title,text,message:from?[from,to,payload]:undefined});
+bindVisual('1.14','visualProtocol','一封邮件，从明文到解密验签','跟着移动的消息读：签名、正文密文、被包装的会话密钥是三种不同对象。',{steps:[
+ VStep('准备正文与摘要','Alice 有正文 P，计算 h=H(P)。摘要不隐藏正文。','Alice 正文','哈希函数','P → h'),
+ VStep('生成签名','用 Alice 的私钥通过合适的签名方案产生 S。此时 P 仍是明文。','Alice 私钥','签名方案','h → S'),
+ VStep('加密正文和签名','使用会话密钥 K 加密 P || S。旁观者不应直接读到正文。','Alice','对称加密','P || S → 密文 C'),
+ VStep('包装会话密钥','使用 Bob 的可信公钥包装 K，把被包装的 K 与 C 一起发送。','Alice','Bob','公钥包装的 K + C'),
+ VStep('Bob 取出 K 并解密','Bob 用自己的私钥取出 K，再用 K 恢复 P || S。','Bob 私钥','Bob','取出 K → 解开 C'),
+ VStep('验证发送者','Bob 重新计算摘要，用 Alice 的可信公钥验签。保密与发送者认证分别依赖不同密钥。','Alice 可信公钥','Bob 验签','比较 H(P) 与签名验证结果')
+]});
+bindVisual('6.12','visualProtocol','四条消息，逐次核对随机数','可播放也可逐步前进；每步显示消息方向、密文载荷和接收方必须做的检查。',{steps:[
+ VStep('1 · A 发起','B 用自己的私钥解密；ID_A 是声称的身份，N₁ 标识本次发起。','A','B','E_PUb(N₁ || ID_A)'),
+ VStep('2 · B 回答并挑战','A 用自己的私钥解密，核对保存的 N₁；N₂ 是 B 的新挑战。','B','A','E_PUa(N₁ || N₂)'),
+ VStep('3 · A 回答挑战','B 解密后必须核对自己的 N₂，而不是只看消息格式正确。','A','B','E_PUb(N₂)'),
+ VStep('4 · A 分发会话密钥','Bob 解开外层，再通过 A 的可信公钥检查内层。这里沿用课件的抽象私钥运算记号。','A','B','E_PUb(E_PRa(K_S))'),
+ VStep('检查协议前提','公钥身份可信、随机数新鲜且绑定会话。真正实现还要绑定身份和上下文，并使用标准编码及签名方案。')
+]});
+bindVisual('7.04','visualProtocol','旧票据 + 旧密钥，怎样通过新挑战？','切换正常分发与旧密钥攻击，再从头播放；重点观察 Bob 看到的证据为什么区分不了两种情境。',{variants:[
+ {name:'正常：中心分发新 K',steps:[
+ VStep('1 · A 请求联系 B','R_A 用来对应 A 的本次请求。','A','中心 N','A, B, R_A'),
+ VStep('2 · N 分发 K 和票据','A 检查 R_A、B，取出 K。票据 Ticket_B=E_keyB(K,A)，A 只负责转交。','中心 N','A','E_keyA(K, B, R_A, Ticket_B)'),
+ VStep('3 · A 转交票据','B 用与中心共享的长期密钥 key_B 解票，获得 K 和声称的 A。','A','B','Ticket_B'),
+ VStep('4 · B 发新挑战','B 检查当前对方是否知道票据内的 K。','B','A','E_K(R_B)'),
+ VStep('5 · A 回答','A 解出 R_B，返回变换后的值；B 核对结果并接受。','A','B','E_K(R_B − 1)')
+ ]},
+ {name:'攻击：保存旧票据，且旧 K 已泄漏',steps:[
+ VStep('攻击前提','M 保存一张过去的 Ticket_old，又取得对应 K_old。它没有中心或 B 的长期密钥。'),
+ VStep('1 · M 冒充 A 转交旧票','没有新鲜性字段，B 无法仅靠票据分清这是不是本次新 K。','攻击者 M','B','Ticket_old = E_keyB(K_old,A)'),
+ VStep('2 · B 发全新挑战','R_B 确实是新的；但它被 B 刚取出的旧 K 保护。','B','攻击者 M','E_Kold(R_B)'),
+ VStep('3 · M 用泄漏的 K 回答','M 知道 K_old，能解开全新 R_B，再正确返回 R_B−1；无需破解加密算法。','攻击者 M','B','E_Kold(R_B − 1)'),
+ VStep('4 · 弱协议错误接受','新挑战只证明对方知道票据内密钥，不能证明该密钥新鲜或仍应被信任。修补应建立可验证的新鲜性。')
+ ]}
+]});
+
+// Retain original management process content, but show its causal handoffs.
+for(const number of ['1.07','2.01','4.04']){
+ const [ch,no]=number.split('.').map(Number),u=chapters[ch-1].units[no-1];
+ u.lesson.labTag='流程推演';u.lesson.guide='按下一步或播放，沿时间线追踪中间结果；可以直接回到任意一步核对。';
+}
+const managementOutputs={
+ '1.07':[['发现成绩可被未授权修改','确定资产与风险'],['只允许获批人员修改','明确保护目标和责任'],['配置授权与审批','让规则成为实际控制'],['审查异常修改记录','发现、调查、恢复'],['核对控制是否执行','把新发现送回下一轮评估']],
+ '2.01':[['本例范围：成绩系统','列出资产、业务影响与边界'],['访谈 + 权限配置 + 日志','找出未授权修改的证据'],['弱点 → 威胁 → 后果','评估可能性及影响'],['与可接受标准比较','选择接受、缓解或转移'],['费用 + 剩余风险','形成有依据的建议与复查安排']]
+};
+for(const [number,outputs] of Object.entries(managementOutputs)){
+ const [ch,no]=number.split('.').map(Number),u=chapters[ch-1].units[no-1];
+ u.demo.steps=u.demo.steps.map(([title,text],i)=>({title,text,diagram:visualChain([['接续上一步',i?outputs[i-1][0]:'校园成绩系统的保护需求'],['本步产出',outputs[i][0]],['交给下一步',outputs[i][1]]])}));
+}
+
+function feistelCircuit(l,right,k,stage,reverse=false){
+ const f=mod((reverse?l:right)**2+k,16),outL=reverse?right^f:right,outR=reverse?l:l^f;
+ const inputL=bits(l,4),inputR=bits(right,4),fval=bits(f,4),left=bits(outL,4),rightText=bits(outR,4);
+ return `<svg class="feistel-circuit" viewBox="0 0 500 330" role="img" aria-label="${reverse?'逆向':'正向'} Feistel：输入 ${inputL}、${inputR}；F 输出 ${fval}；输出 ${left}、${rightText}"><g class="circuit-wires"><path class="${stage>=1?'lit':''}" d="${reverse?'M130 54V95H250':'M370 54V95H250'}"/><path class="${stage>=2?'lit':''}" d="M250 135V170"/><path class="${stage>=2?'lit':''}" d="${reverse?'M370 54V170H270':'M130 54V170H230'}"/><path class="${stage>=3?'lit':''}" d="${reverse?'M250 190L130 265M130 54V220L370 265':'M250 190L370 265M370 54V220L130 265'}"/></g><g class="circuit-box"><rect x="74" y="14" width="112" height="40" rx="8"/><rect x="314" y="14" width="112" height="40" rx="8"/><rect x="196" y="95" width="108" height="40" rx="8"/><circle cx="250" cy="175" r="18"/><rect x="74" y="265" width="112" height="40" rx="8"/><rect x="314" y="265" width="112" height="40" rx="8"/></g><g class="circuit-text"><text x="130" y="40">${reverse?'L′':'L'} ${inputL}</text><text x="370" y="40">${reverse?'R′':'R'} ${inputR}</text><text x="250" y="120">${stage>=1?'F = '+fval:'F(·, K)'}</text><text x="250" y="181">⊕</text><text x="130" y="291">${reverse?'L':'L′'} ${stage>=3?left:'????'}</text><text x="370" y="291">${reverse?'R':'R′'} ${stage>=3?rightText:'????'}</text><text x="370" y="125">K = ${bits(k,4)}</text></g></svg>`;
+}
+demoFactories.feistel=r=>{
+ r.innerHTML=`<div class="controls">${slider('l','输入左半（4 位）',11,0,15)}${slider('r','输入右半（4 位）',3,0,15)}${slider('k','轮密钥 K（4 位）',2,0,15)}${selectHTML('direction','推演方向',[[0,'加密：L,R → L′,R′'],[1,'解密：L′,R′ → L,R']])}</div><div data-process></div>`;
+ const draw=()=>{let l=getN(r,'l'),right=getN(r,'r'),k=getN(r,'k'),reverse=getV(r,'direction')==='1',f=mod((reverse?l:right)**2+k,16),left=reverse?right^f:right,outR=reverse?l:l^f;
+ stepper($('[data-process]',r),[
+ {title:'先放入左右两半',text:'上方是输入，下方是输出。教学轮函数 F(X,K)=(X²+K) mod16；它不要求可逆。',diagram:feistelCircuit(l,right,k,0,reverse)},
+ {title:'一半进入轮函数 F',text:`${reverse?'输入 L′':'输入 R'}=${reverse?l:right}，F=${f}（${bits(f,4)}）。注意：逆向也计算 F，不是求 F 的逆函数。`,diagram:feistelCircuit(l,right,k,1,reverse)},
+ {title:'用 XOR 合并另一半',text:`${reverse?'L=R′⊕F(L′,K)':'R′=L⊕F(R,K)'}=${reverse?right:l} XOR ${f}=${reverse?left:outR}。同一个值 XOR 两次会消掉。`,diagram:feistelCircuit(l,right,k,2,reverse)},
+ {title:'两条路径组成输出',text:`输出 ${bits(left,4)} | ${bits(outR,4)}。${reverse?'已撤销这一轮。':'将这个输出填入输入，再选解密，可恢复原来的两半。'}`,diagram:feistelCircuit(l,right,k,3,reverse)}
+ ],{language:'zh'});};
+ watch(r,draw);
+};
+Object.assign(chapters[4].units[6].lesson,{labTag:'线路动画',labTitle:'看一轮 Feistel 的数据怎样分叉、合并',guide:'调参数后逐步播放；高亮线路显示本步流向。把加密输出填回输入，切换解密，看同一个 F 怎样撤销这一轮。',open:true});
+
+demoFactories.modes=(r,d)=>{
+ r.innerHTML=`<p class="hint">8 位教学函数 E(x)=(x+K) mod256。用于展示连接关系；错误传播的数值不代表真实 AES 的扩散强度。</p><div class="controls">${selectHTML('mode','分组模式',['ECB','CBC','CFB','OFB','CTR'].map(x=>[x,x]))}${inputText('p','明文块（1–4 个 0–255 整数）','42,42,17,42')}${slider('k','教学密钥 K',23,0,255)}${slider('iv','IV / 起始计数器',7,0,200)}</div><p class="hint">点下方任意密文块，翻转其最低位；再次点击可恢复。也可以用键盘选中后按 Enter。</p><div data-blocks></div><div data-process></div>`;
+ $('[data-v="mode"]',r).value=d.mode||'ECB';let damage=-1;
+ const draw=()=>safe(r,()=>{
+  const raw=getV(r,'p').split(','),p=raw.map(x=>Number(x.trim()));
+  if(p.length<1||p.length>4||raw.some(x=>!x.trim())||p.some(x=>!Number.isInteger(x)||x<0||x>255)){visualStops.get($('[data-process]',r))?.();$('[data-process]',r).innerHTML='';throw Error('请输入 1–4 个 0–255 的整数。');}
+  if(damage>=p.length)damage=-1;
+  const mode=getV(r,'mode'),k=getN(r,'k'),iv=getN(r,'iv'),z=modeRun(p,k,iv,mode,damage),dup=new Set(z.c.filter((v,i,a)=>a.indexOf(v)!==i));
+  $('[data-blocks]',r).innerHTML=`<div class="block-stream">${p.map((v,i)=>`<div class="block-column"><span>M${i+1} <b>${v}</b></span><i aria-hidden="true">↓</i><button data-corrupt="${i}" aria-pressed="${damage===i}" aria-label="${damage===i?'恢复':'篡改'}第 ${i+1} 密文块" class="${damage===i?'tampered':''} ${dup.has(z.c[i])?'repeated':''}">C${i+1}<b>${z.changed[i]}</b>${damage===i?'<small>已翻位</small>':dup.has(z.c[i])?'<small>重复密文</small>':'<small>点击翻位</small>'}</button><i aria-hidden="true">↓</i><span class="${z.recovered[i]!==v?'block-damaged':''}">M′${i+1} <b>${z.recovered[i]}</b><small>${z.recovered[i]!==v?'结果改变':'恢复原值'}</small></span></div>`).join('')}</div><div class="result" aria-live="polite">${damage===-1?'未篡改。先比较相同明文块的密文是否相同。':`翻转 C${damage+1} 最低位后，第 ${p.map((v,i)=>z.recovered[i]!==v?i+1:null).filter(Boolean).join('、')} 明文块的恢复结果改变。`} 所有这些模式单独使用都不提供消息完整性保证。</div>`;
+  $$('[data-corrupt]',r).forEach(b=>b.onclick=()=>{damage=damage===+b.dataset.corrupt?-1:+b.dataset.corrupt;draw()});
+  let feedback=iv,steps=p.map((v,i)=>{
+   const old=feedback;let input,operation,source;
+   if(mode==='ECB'){input=v;operation=`E(${v})=${z.c[i]}`;source='本块独立，不使用 IV 或前块';}
+   if(mode==='CBC'){input=v^old;operation=`${v} XOR ${old}=${input}；E(${input})=${z.c[i]}`;source=i?'前一密文 C'+i:'初始 IV';feedback=z.c[i];}
+   if(mode==='CFB'){input=old;operation=`E(${old})=${mod(old+k,256)}；${v} XOR ${mod(old+k,256)}=${z.c[i]}`;source=i?'前一密文 C'+i:'初始 IV';feedback=z.c[i];}
+   if(mode==='OFB'){input=old;feedback=mod(old+k,256);operation=`E(${old})=${feedback}；${v} XOR ${feedback}=${z.c[i]}`;source=i?'上一内部输出 O'+i:'初始 IV';}
+   if(mode==='CTR'){input=iv+i;operation=`E(${input})=${mod(input+k,256)}；${v} XOR ${mod(input+k,256)}=${z.c[i]}`;source='IV + 块偏移 = '+input;}
+   return {title:'第 '+(i+1)+' 块 · '+mode,text:operation+'。图示为未篡改的加密路径；上面的块卡展示收到密文后的解密结果。',diagram:visualChain([['状态来源',source],['送入 E 的值',String(input)],['得到密文 C'+(i+1),String(z.c[i])],['传给下一块',mode==='ECB'?'不传状态':mode==='CTR'?'换下一个计数器':mode==='OFB'?'内部输出 '+feedback:'密文 '+feedback]])};
+  });
+  stepper($('[data-process]',r),steps,{language:'zh'});
+ });
+ // The result target must exist even while parsing an invalid input.
+ $('[data-blocks]',r).innerHTML='<div class="result" aria-live="polite"></div>';
+ $$('input,select',r).forEach(e=>e.addEventListener('input',draw));draw();
+};
+for(const [i,mode] of [[10,'ECB'],[11,'CBC'],[12,'CFB']]){
+ chapters[4].units[i].demo.mode=mode;
+ Object.assign(chapters[4].units[i].lesson,{labTag:'反馈链实验',labTitle:i===10?'点一块密文，看重复和篡改留下什么':i===11?'沿 CBC 链追踪一位篡改':'切换反馈来源，比较 CFB / OFB / CTR',guide:'上方三行分别是明文、收到的密文、恢复的明文。点击密文块翻位，下方流程图逐块展示加密时到底把什么传给了下一块。'});
+}
+
+// A four-round trace is now a state diagram rather than a paragraph of bit values.
+demoFactories.originalfeistel=r=>{
+ r.innerHTML=`<div class="controls">${selectHTML('dir','Direction',[[1,'Decrypt: rounds 4 to 1'],[0,'Encrypt: rounds 1 to 4']])}${inputText('v','Eight-bit input','10010110')}${inputText('k','Four-bit key','0010')}</div><div class="result" aria-live="polite"></div><div data-process></div>`;
+ watch(r,()=>{let raw=getV(r,'v'),key=getV(r,'k');if(!/^[01]{8}$/.test(raw)||!/^[01]{4}$/.test(key))throw Error('Enter exactly eight input bits and four key bits.');let dec=getV(r,'dir')==='1',z=exerciseFeistel(parseInt(raw,2),parseInt(key,2),dec);result(r,`<strong>${dec?'Plaintext':'Ciphertext'}: ${bits(z.value)}</strong><p>Reverse check: ${bits(exerciseFeistel(z.value,parseInt(key,2),!dec).value)}. F=(i·R)^K mod16; K is an exponent.</p>`);
+ stepper($('[data-process]',r),z.trace.map(t=>({title:`Round ${t.i}${dec?' reversed':''}`,text:`F output ${bits(t.f,4)}; ${dec?'recover the previous halves':'swap and combine by XOR'}.`,diagram:visualChain([['Input',`L=${bits(t.oldL,4)} | R=${bits(t.oldR,4)}`],['F computation',`(${t.i} × ${dec?t.oldL:t.oldR})^${parseInt(key,2)} mod16 = ${t.f}`],['XOR / copy',dec?'L_prev=R XOR F(L,K); R_prev=L':'L_next=R; R_next=L XOR F(R,K)'],['Output',`L=${bits(t.l,4)} | R=${bits(t.r,4)}`]])})),{language:'en'});
+ });
+};
+Object.assign(chapters[4].units[8].lesson,{labTag:'逐轮状态图',guide:'保持原题英文计算界面。沿每轮 Input → F → XOR / copy → Output 核对状态；点击时间线可以跳到任何一轮。'});
+
+// No subsection keeps a click-to-read definition deck.
+for(const c of chapters)for(const u of c.units){
+ if(u.demo.type==='explore'||u.demo.type==='cia')throw Error('Unconverted definition deck: '+c.no+' '+u.title);
+ if(!u.lesson.labTag)u.lesson.labTag=['practice','classify','sort'].includes(u.demo.type)?'英文练习':['sequence','protocolvariants','kerberosattempts','kerberos','reflection'].includes(u.demo.type)?'流程推演':'计算实验';
+}
 </script><script>const $=(s,root=document)=>root.querySelector(s), $$=(s,root=document)=>[...root.querySelectorAll(s)];
 const escapeHTML=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const slideText=s=>String(s).split(/(<a href="https:\/\/[^"<>]+">[^<]+<\/a>)/g).map(t=>t.startsWith('<a href="https://')?t:escapeHTML(t)).join('');
@@ -825,9 +1071,14 @@ function renderLessonBlock(b){
   default:throw Error('Unknown lesson block: '+b.kind);
  }
 }
+function renderLearningVisual(c,u,i){
+ const l=u.lesson,body=`<div class="lab${l.diagram?' diagram-body':''}" data-chapter="${c.no}" data-unit="${i}"><div class="lab-body"></div></div>`;
+ if(l.diagram)return `<figure class="concept-figure"><figcaption><span class="lab-tag">${escapeHTML(l.labTag)}</span><strong>${escapeHTML(l.labTitle)}</strong></figcaption><p class="lab-guide">${escapeHTML(l.guide)}</p>${body}</figure>`;
+ return `<details class="lesson-lab"${l.open?' open':''}><summary><span class="lab-tag">${escapeHTML(l.labTag||'计算实验')}</span>${escapeHTML(l.labTitle)}</summary><p class="lab-guide">${escapeHTML(l.guide)}</p>${body}</details>`;
+}
 function renderTeachingUnit(c,u,i){
  const l=u.lesson;
- return `<article class="unit teaching-unit" id="unit-${c.no}-${i}"${u.midterm?` data-priority="${u.midterm.level}"`:""} aria-labelledby="lesson-title-${c.no}-${i}"><header class="unit-title"><div><div class="lesson-number">${c.no}.${String(i+1).padStart(2,'0')} <span>${escapeHTML(u.title)}</span>${midtermBadge(u)}</div><h3 id="lesson-title-${c.no}-${i}">${escapeHTML(l.title)}</h3><div class="en">${escapeHTML(u.en)}</div></div></header><div class="source">对应课件：${escapeHTML(u.source||'Lecture '+c.no)} · 第 ${escapeHTML(u.pages)} 页</div>${midtermNote(u)}<div class="lesson-prose">${l.blocks.map(renderLessonBlock).join('')}</div>${u.foundation?`<details class="foundation-notes"><summary>先补一点基础：位、字节、十六进制与异或</summary><div class="mini-prereq"></div></details>`:''}<details class="lesson-lab"${l.open?' open':''}><summary><span class="lab-tag">动手试试</span>${escapeHTML(l.labTitle)}</summary><p class="lab-guide">${escapeHTML(l.guide)}</p><div class="lab" data-chapter="${c.no}" data-unit="${i}"><div class="lab-body"></div></div></details><details class="slide-notes"><summary>对照课件 · 术语、条件与补充细节</summary><div class="slide-notes-body"><p>${slideText(u.what)}</p><p>${slideText(u.why)}</p><p>${slideText(u.how)}</p>${u.formula?`<div class="formula">${escapeHTML(u.formula)}</div>`:''}</div></details></article>`;
+ return `<article class="unit teaching-unit" id="unit-${c.no}-${i}"${u.midterm?` data-priority="${u.midterm.level}"`:""} aria-labelledby="lesson-title-${c.no}-${i}"><header class="unit-title"><div><div class="lesson-number">${c.no}.${String(i+1).padStart(2,'0')} <span>${escapeHTML(u.title)}</span>${midtermBadge(u)}</div><h3 id="lesson-title-${c.no}-${i}">${escapeHTML(l.title)}</h3><div class="en">${escapeHTML(u.en)}</div></div></header><div class="source">对应课件：${escapeHTML(u.source||'Lecture '+c.no)} · 第 ${escapeHTML(u.pages)} 页</div>${midtermNote(u)}<div class="lesson-prose">${l.blocks.map(renderLessonBlock).join('')}</div>${u.foundation?`<details class="foundation-notes"><summary>先补一点基础：位、字节、十六进制与异或</summary><div class="mini-prereq"></div></details>`:''}${renderLearningVisual(c,u,i)}<details class="slide-notes"><summary>对照课件 · 术语、条件与补充细节</summary><div class="slide-notes-body"><p>${slideText(u.what)}</p><p>${slideText(u.why)}</p><p>${slideText(u.how)}</p>${u.formula?`<div class="formula">${escapeHTML(u.formula)}</div>`:''}</div></details></article>`;
 }
 function renderTeachingChapter(c){
  const story=chapterStories[c.no-1];
