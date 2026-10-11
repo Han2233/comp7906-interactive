@@ -17,6 +17,7 @@ assert.equal(teaching.stories.length,7);assert.equal(teaching.lessons.length,88)
 const blockKinds=new Set(['paragraph','heading','aside','worked','comparison','flow','dialogue','equation']);
 for(const story of teaching.stories){assert.ok(story.scene&&story.story&&story.bridge);assert.equal(story.route.length,3);}
 for(const l of teaching.lessons){assert.ok(l.title&&l.labTitle&&l.guide);assert.ok(l.blocks.length>=3);for(const b of l.blocks){assert.ok(blockKinds.has(b.kind));if(b.kind==='equation')assert.ok(!/&(?:lt|gt);/.test(b.expression));if(b.kind==='worked')assert.ok(b.steps.length>=2);if(b.kind==='flow')assert.ok(b.items.length>=2);}}
+vm.runInContext(fs.readFileSync('midterm-focus.js','utf8'),ctx,{filename:'midterm-focus.js'});
 // Load the renderer in the same global context to detect cross-file name collisions.
 ctx.window={addEventListener(){}};ctx.document={};ctx.localStorage={getItem(){return '[]'}};
 vm.runInContext(fs.readFileSync('app.js','utf8'),ctx,{filename:'app.js'});
