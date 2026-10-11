@@ -3,6 +3,22 @@ const escapeHTML=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>'
 const slideText=s=>String(s).split(/(<a href="https:\/\/[^"<>]+">[^<]+<\/a>)/g).map(t=>t.startsWith('<a href="https://')?t:escapeHTML(t)).join('');
 const saved=(()=>{try{return JSON.parse(localStorage.getItem('comp7906-progress')||'[]')}catch{return []}})();
 const completed=new Set(Array.isArray(saved)?saved:[]);
+function initSidebarToggle(){
+ const button=$('#sidebar-toggle'),sidebar=$('#course-sidebar'),root=document.documentElement;
+ let collapsed=root.classList.contains('sidebar-collapsed');
+ try{const preference=localStorage.getItem('comp7906-sidebar-collapsed');if(preference!==null)collapsed=preference==='true'}catch{}
+ const apply=()=>{root.classList.toggle('sidebar-collapsed',collapsed);sidebar.hidden=collapsed;button.setAttribute('aria-expanded',String(!collapsed));const label=collapsed?'展开目录':'收起目录';$('.sidebar-toggle-label',button).textContent=label;button.setAttribute('aria-label',label);button.title=label};
+ apply();
+ button.onclick=()=>{
+  // Keep the current paragraph in view when earlier content changes height.
+  const top=$('.topbar').getBoundingClientRect().bottom;
+  const anchor=$$('.main h1,.main h2,.main h3,.main h4,.main p,.main .formula,.main summary').find(el=>el.getClientRects().length&&el.getBoundingClientRect().bottom>top);
+  const before=anchor?.getBoundingClientRect().top;
+  collapsed=!collapsed;apply();
+  try{localStorage.setItem('comp7906-sidebar-collapsed',String(collapsed))}catch{}
+  if(anchor)requestAnimationFrame(()=>window.scrollBy({top:anchor.getBoundingClientRect().top-before,behavior:'instant'}));
+ };
+}
 function updateProgress(){ $('#progress-label').textContent=`已学 ${completed.size} / ${chapters.length} 章`; $$('.mark').forEach(b=>{b.textContent=completed.has(+b.dataset.chapter)?'已完成 · 再读本章':'标记本章已学完';b.setAttribute('aria-pressed',completed.has(+b.dataset.chapter))});try{localStorage.setItem('comp7906-progress',JSON.stringify([...completed]))}catch{}}
 function midtermBadge(u){return u.midterm?`<b class="midterm-badge level-${u.midterm.level}">${midtermLevels[u.midterm.level].label}</b>`:'';}
 function midtermNote(u){return u.midterm?`<aside class="midterm-note level-${u.midterm.level}" aria-label="${midtermLevels[u.midterm.level].label}复习提示"><p><strong>复习到能：</strong>${escapeHTML(u.midterm.goal)}</p><div class="midterm-evidence">依据：${escapeHTML(u.midterm.source)}</div></aside>`:'';}
@@ -46,7 +62,7 @@ function render(){
  $('#download').onclick=()=>{const blob=new Blob(['<!DOCTYPE html>\n'+document.documentElement.outerHTML],{type:'text/html;charset=utf-8'});const link=document.createElement('a');link.href=URL.createObjectURL(blob);link.download='COMP7906-网安互动学习.html';link.click();setTimeout(()=>URL.revokeObjectURL(link.href),1000)};
 }
 function toast(t){const e=document.createElement('div');e.className='toast';e.textContent=t;document.body.append(e);setTimeout(()=>e.remove(),2800)}
-window.addEventListener('DOMContentLoaded',()=>{render();registerLearningTools()});
+window.addEventListener('DOMContentLoaded',()=>{initSidebarToggle();render();registerLearningTools()});
 
 function registerLearningTools(){
  const context=document.modelContext;if(!context?.registerTool)return;const lifecycle=new AbortController();window.addEventListener('pagehide',()=>lifecycle.abort(),{once:true});
